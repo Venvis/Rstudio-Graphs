@@ -1,0 +1,31 @@
+print("               Welcome to Rstudio               ")
+print("               Graphs                           ")
+
+print("The types of graphs available:")
+print("                         1.piechart")
+print("                         2.barplot")
+print("                         3.line graph")
+#read<-read.csv("piechartcsv.csv")
+print("What kind of graph would you like to view?")
+type<-readline(prompt="Enter your type og graph : ")
+type<-as.integer(type)
+if (type=="bargraph" | type==1){
+  
+  read<-read.csv("piechartcsv.csv")
+  data1<-read$Cars
+  data2<-read$Percentage
+  b<-round(data2/sum(data2)*100)
+  b<-paste(b,"%",sep=" ")
+  color<-rainbow(length(data1))
+  pie(data2,main="Piechart",labels=b,col=color,cex=1.8)
+  legend("topleft",c("Tesla","Audi","Mercedes","Bentley","GMC","Cadillac","BMW"),fill=color,cex=1.2)
+  
+} else if (type=='barplot' | type==2){
+  data<-read.csv("piechartcsv.csv")
+  s<-data$Percentage
+  r<-data$Cars
+  box()
+  barplot(s,main="Barplot",xlab="cars",ylab="percentage",names.arg=c("Tesla","Audi","Mercedes","Bentley","GMC","Cadillac","BMW"),col=rainbow(length(s)))
+  legend("topright",c("Tesla","Audi","Mercedes","Bentley","GMC","Cadillac","BMW"),fill=rainbow(length(r)),cex=1.2,bty="n")
+  
+}

@@ -8,8 +8,8 @@ print("                         3.line graph")
 #read<-read.csv("piechartcsv.csv")
 print("What kind of graph would you like to view?")
 type<-readline(prompt="Enter your type og graph : ")
-type<-as.integer(type)
-if (type=="bargraph" | type==1){
+#type<-as.integer(type)
+if (type=="piechart" | type=='1'){
   
   read<-read.csv("piechartcsv.csv")
   data1<-read$Cars
@@ -20,7 +20,7 @@ if (type=="bargraph" | type==1){
   pie(data2,main="Piechart",labels=b,col=color,cex=1.8)
   legend("topleft",c("Tesla","Audi","Mercedes","Bentley","GMC","Cadillac","BMW"),fill=color,cex=1.2)
   
-} else if (type=='barplot' | type==2){
+} else if (type=='bargraph' | type=='2'){
   data<-read.csv("piechartcsv.csv")
   s<-data$Percentage
   r<-data$Cars
